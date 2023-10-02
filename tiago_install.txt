@@ -1,0 +1,24 @@
+services:
+  linkstack:
+    container_name: linkstack
+    hostname: linkstack
+    environment:
+      - HTTP_SERVER_NAME=linkstack.br
+      - HTTPS_SERVER_NAME=linkstack.br
+      - SERVER_ADMIN=devb@linkstack.br
+      - TZ-America/Sao_Paulo
+      - PHP_MEMORY_LIMIT=512M
+      - UPLOAD_MAX_FILESIZE=50M
+    ports:
+      - '8011:80'
+      - '4435:443'
+    volumes:
+      - linkstack:/htdocs
+    restart: unless-stopped
+    image: linkstackorg/linkstack:latest
+
+volumes:
+  linkstack:
+
+https://www.youtube.com/watch?v=s1rv0bOGcZ4&t=137s
+https://www.youtube.com/watch?v=FGS-VL6MgLo
